@@ -1,4 +1,4 @@
-# 🏃 Lauf-Auswertung mit Python
+# Lauf-Auswertung mit Python
 
 Ein Python-Projekt zur Analyse und Visualisierung von Laufdaten.
 Erstellt als Portfolioprojekt für Bewerbungsunterlagen.
