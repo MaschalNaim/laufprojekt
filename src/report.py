@@ -3,25 +3,22 @@ import matplotlib.gridspec as gridspec
 
 def create_report(df):
     fig = plt.figure(figsize=(10, 12))
-    fig.suptitle("Lauf-Auswertung", fontsize=18, fontweight="bold", y=0.98)
+    fig.suptitle("Lauf-Auswertung", fontsize=16, fontweight="bold")
 
     gs = gridspec.GridSpec(3, 1, figure=fig, hspace=0.5)
 
-    # Diagramm 1: Distanz
     ax1 = fig.add_subplot(gs[0])
     ax1.bar(df["date"], df["distance_km"], color="steelblue")
     ax1.set_title("Distanz pro Lauf")
     ax1.set_ylabel("Kilometer")
     ax1.tick_params(axis="x", rotation=45)
 
-    # Diagramm 2: Tempo
     ax2 = fig.add_subplot(gs[1])
     ax2.plot(df["date"], df["pace_min_per_km"], marker="o", color="tomato")
     ax2.set_title("Tempo pro Lauf")
     ax2.set_ylabel("min/km")
     ax2.tick_params(axis="x", rotation=45)
 
-    # Zusammenfassung als Text
     ax3 = fig.add_subplot(gs[2])
     ax3.axis("off")
     summary = (
@@ -32,8 +29,7 @@ def create_report(df):
         f"Durchschnittstempo: {df['pace_min_per_km'].mean():.2f} min/km"
     )
     ax3.text(0.1, 0.5, summary, fontsize=12, verticalalignment="center",
-             fontfamily="monospace",
-             bbox=dict(boxstyle="round", facecolor="lightblue", alpha=0.5))
+             fontfamily="monospace")
 
     plt.savefig("lauf_report.pdf", format="pdf", bbox_inches="tight")
-    print("✅ PDF-Report gespeichert als lauf_report.pdf!")
+    print("PDF gespeichert.")
