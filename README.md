@@ -38,16 +38,16 @@ laufprojekt/
 
 ## SQL-Abfragen
 ```sql
--- Alle Läufe
+Alle Läufe:
 SELECT * FROM runs
 
--- Schnellster Lauf
+Schnellster Lauf:
 SELECT date, distance_km, pace_min_per_km 
 FROM runs 
 ORDER BY pace_min_per_km ASC 
 LIMIT 1
 
--- Läufe über 5km
+Läufe über 5km:
 SELECT date, distance_km 
 FROM runs 
 WHERE distance_km > 5
